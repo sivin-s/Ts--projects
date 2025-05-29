@@ -1,3 +1,6 @@
+// TODO:   implement type narrowing and type guard 
+// I only give type assertion to implement ts error .(means told ts no null will come)
+
 interface Task{
     id: number;
     text: string;
@@ -7,9 +10,12 @@ interface Task{
 class TodoManage{
     private tasks:Task[] = [];
     private taskListElement: HTMLUListElement; // HTML ELEMENT -> interface : properties and methods.
-    private taskInput : HTMLInputElement;
+    private taskInput : HTMLInputElement;  // we want explicitly specify the type before assigning .
+       //  for TypeScript won’t enforce the type
+        //You lose autocomplete and type safety
     constructor(){
         // " as "  is a 'type assertion' tells typescript element still exist (mean sometimes it give null when we get null . null have no properties or methods ).
+        // why we giving 'as HTMLUListElement' -> "Trust me, I know that this element will exist and will be an  HTMLUListElement".
         this.taskListElement=document.getElementById("task-list") as HTMLUListElement;
         const form = document.getElementById("new-task-form") as HTMLFormElement;
         this.taskInput = document.getElementById("task-input") as HTMLInputElement;
