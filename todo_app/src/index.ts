@@ -12,7 +12,6 @@ class TodoManage{
         // " as "  is a 'type assertion' tells typescript element still exist (mean sometimes it give null when we get null . null have no properties or methods ).
         this.taskListElement=document.getElementById("task-list") as HTMLUListElement;
         const form = document.getElementById("new-task-form") as HTMLFormElement;
-             console.log('p>',form)
         this.taskInput = document.getElementById("task-input") as HTMLInputElement;
         form.addEventListener("submit",this.addTask.bind(this))
         // type narrowing is missing
